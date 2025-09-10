@@ -1,3 +1,15 @@
+<template>
+  <nav>
+    <router-link
+      v-for="item in navItems"
+      :key="item.path"
+      :to="item.path"
+    >
+      {{ item.title }}
+    </router-link>
+  </nav>
+</template>
+
 <script setup>
 import { useRouter } from 'vue-router'
 
@@ -10,15 +22,3 @@ const navItems = router.getRoutes()
     title: route.meta.title
   }))
 </script>
-
-<template>
-  <nav>
-    <router-link
-      v-for="item in navItems"
-      :key="item.path"
-      :to="item.path"
-    >
-      {{ item.title }}
-    </router-link>
-  </nav>
-</template>

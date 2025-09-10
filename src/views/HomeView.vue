@@ -5,15 +5,15 @@
             <GoodSearchInput @result="handleResult" @error="handleError"/>
             <div v-if="goodData" class="result">
                 <h3>查询结果：</h3>
-                <p><strong>名称：</strong>{{ goodData.goodName }}</p>
-                <p><strong>价格：</strong>{{ goodData.goodPrice }}</p>
-                <p><strong>单位：</strong>{{ goodData.goodUnit }}</p>
-                <p><strong>简介：</strong>{{ goodData.goodDescription }}</p>
-                </div>
+                <ul>
+                  <li v-for="item in goodData" :key="item.goodId">
+                    <strong>{{ item.goodName }}</strong>
+                  </li>
+                </ul>
+            </div>
 
-                <div v-if="errorMessage" class="error">
-                {{ errorMessage }}
-                
+            <div v-if="errorMessage" class="error">
+              <strong>{{ errorMessage }}</strong>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
 <script setup>
 import Navigation from '@/components/TotalNavigation.vue'
 import { ref } from 'vue'
-import GoodSearchInput from '@/components/goodsOperate/goodSearch.vue'
+import GoodSearchInput from '@/components/goodsOperate/GoodSearch.vue'
 
 // 页面状态
 const goodData = ref(null)
@@ -30,13 +30,13 @@ const errorMessage = ref('')
 
 // 处理搜索结果
 const handleResult = (data) => {
-  goodData.value = data
+  goodData.value = data.data
   errorMessage.value = ''
 }
 
 const handleError = (msg) => {
   errorMessage.value = msg
-  goodData.value = null
+  goodData.value = null;
 }
 
 </script>

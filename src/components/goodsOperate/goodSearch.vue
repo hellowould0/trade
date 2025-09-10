@@ -34,9 +34,9 @@ const handleSearch = async () => {
   loading.value = true
   try {
     const backData = await queryGoodByName(name)
-    emit('result', backData)  // 成功：返回商品数据
+    emit('result', backData) 
   } catch (err) {
-    emit('error', err.message) // 失败：返回错误信息
+      emit('error', err.response?.data?.message || '查询商品时发生错误') 
   } finally {
     loading.value = false
   }
