@@ -24,6 +24,25 @@ export const queryGoodByName = async (name) => {
   }
 }
 
+export const queryGoodForMerchant = async (merchantId) => {
+  try {
+    const response = await apiClient.get(`/api/goods/merchant`, {
+      params: { merchantId: merchantId }
+    })
+    return response.data
+  } catch (err) {
+    if (err.response) {
+      if (err.response.status === 404) {
+        throw err
+      } else {
+        throw new Error(`请求失败：${err.response.status}`)
+      }
+    } else {
+      throw new Error('网络错误或服务不可用')
+    }
+  }
+}
+
 export const queryGoodById = async (id) => {
   if (!id) {
     throw new Error('商品ID不能为空')

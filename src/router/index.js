@@ -32,32 +32,32 @@ const routes = [
         redirect: '/user/profile',
       },
       {
-            path: '/user/addgood',
-            name: 'addGood',
-            component: GoodAdd,
-            meta: {
-                title: '添加商品',
-                showInNav: false
-            }
-        },
-        {
-            path: '/user/profile',
-            name: 'userProfile',
-            component: UserProfile,
-            meta: {
-                title: '个人信息',
-                showInNav: false
-            }
-        },
-        {
-          path: '/user/showgood',
-          name: 'showGood',
-          component: GoodShow,
-          meta: {
-            title: '展示商品',
+        path: 'addgood',
+        name: 'addGood',
+        component: GoodAdd,
+        meta: {
+            title: '添加商品',
             showInNav: false
-          }
         }
+      },
+      {
+        path: 'profile',
+        name: 'userProfile',
+        component: UserProfile,
+        meta: {
+            title: '个人信息',
+            showInNav: false
+        }
+      },
+      {
+        path: 'showgood',
+        name: 'showGood',
+        component: GoodShow,
+        meta: {
+          title: '展示商品',
+          showInNav: false
+        }
+      }
     ]
   },
   {

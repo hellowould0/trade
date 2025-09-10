@@ -4,10 +4,10 @@
     <!-- 左侧导航 -->
     <!--实际上，增删查改全部塞进一个路由即可，在我的商品里，通过图表进入对饮功能的路由即可-->
     <nav class="user-nav">
-      <router-link to="/user/profile">个人信息</router-link>
-      <router-link to="/user/showgood">我的商品</router-link>
-      <router-link to="/user/addgood">添加商品</router-link>
-      <router-link to="/">返回首页</router-link>
+      <router-link :to="{ name: 'userProfile' }">个人信息</router-link>
+      <router-link :to="{ name: 'showGood' }">我的商品</router-link>
+      <router-link :to="{ name: 'addGood' }">添加商品</router-link>
+      <router-link :to="{ name: 'home' }">返回首页</router-link>
     </nav>
 
     <!-- 右侧内容区 -->
@@ -25,7 +25,7 @@
 /* 整体布局：左右结构 */
 .user-layout {
   display: flex;
-  min-height: 100vh; /* 占满视口高度 */
+  min-height: 100vh; 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
